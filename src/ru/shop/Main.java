@@ -1,5 +1,7 @@
 package ru.shop;
 
+import ru.shop.goods.AbstractGoods;
+
 import java.util.Scanner;
 
 public class Main {
@@ -16,9 +18,9 @@ public class Main {
 
             Order order = new Order();
 
-            order.addProduct(new Product("груши", 200, quantity1));
-            order.addProduct(new Product("яблоки", 100, quantity2));
-            order.addProduct(new Product("персики", 300, quantity3));
+            order.addProduct(new AbstractGoods("груши", 200, quantity1, "кг"));
+            order.addProduct(new AbstractGoods("яблоки", 100, quantity2, "кг"));
+            order.addProduct(new AbstractGoods("персики", 300, quantity3, "кг"));
 
             order.calculateSum();
             }

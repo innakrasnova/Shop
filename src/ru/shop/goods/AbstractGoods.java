@@ -1,15 +1,18 @@
-package ru.shop;
+package ru.shop.goods;
 
-public class Product {
+public class AbstractGoods {
 
     private String name;
     private double price;
     private double quantity;
+    private String unit;
+    private boolean defect;
 
-    public Product(String name, double price, double quantity) {
+    public AbstractGoods(String name, double price, double quantity, String unit) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.unit = unit;
     }
     public double getQuantity() {
         return quantity;
@@ -28,5 +31,21 @@ public class Product {
     }
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public boolean isDefect() {
+        return defect;
+    }
+
+    public void setDefect(boolean defect) {
+        this.defect = defect;
     }
 }
