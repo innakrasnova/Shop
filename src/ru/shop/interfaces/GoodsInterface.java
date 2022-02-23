@@ -8,6 +8,8 @@ public interface GoodsInterface {
 
     double getQuantity();
 
+    void setQuantity(double quantity);
+
     String getUnit();
 
     SectionInterface getSection();

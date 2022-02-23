@@ -16,12 +16,12 @@ public class Order {
     }
 
     public void createOrder(){
-        double quantity = 0;
         for (GoodsInterface goods : goodsInBasket) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Введите количество: ");
-            quantity = sc.nextDouble();
+            goods.setQuantity(sc.nextDouble());
         }
+
         System.out.println();
         if (!goodsInBasket.isEmpty()){
             System.out.println("Заказ сфоормирован. Состав заказа: ");
