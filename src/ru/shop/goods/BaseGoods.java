@@ -1,19 +1,28 @@
 package ru.shop.goods;
 
-public class AbstractGoods {
+import ru.shop.interfaces.GoodsInterface;
+import ru.shop.interfaces.SectionInterface;
+
+public abstract class BaseGoods implements GoodsInterface {
 
     private String name;
     private double price;
-    private double quantity;
     private String unit;
+    private double quantity;
     private boolean defect;
+    private SectionInterface section;
 
-    public AbstractGoods(String name, double price, double quantity, String unit) {
+    public BaseGoods(String name, double price, String unit) {
         this.name = name;
         this.price = price;
-        this.quantity = quantity;
         this.unit = unit;
     }
+
+    public BaseGoods(String name, double quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
     public double getQuantity() {
         return quantity;
     }
@@ -32,20 +41,19 @@ public class AbstractGoods {
     public void setPrice(double price) {
         this.price = price;
     }
-
     public String getUnit() {
         return unit;
     }
-
     public void setUnit(String unit) {
         this.unit = unit;
     }
+    public SectionInterface getSection() { return section; }
+    public void setSection(SectionInterface section) { this.section = section; }
+    public boolean hasDefect() { return defect; }
+    public void setHasDefect(boolean defect) { this.defect = defect; }
 
-    public boolean isDefect() {
-        return defect;
-    }
-
-    public void setDefect(boolean defect) {
-        this.defect = defect;
+    @Override
+    public String toString() {
+        return name + " - " +  + quantity + " " + unit;
     }
 }

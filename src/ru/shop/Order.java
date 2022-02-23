@@ -1,31 +1,49 @@
 package ru.shop;
 
-import ru.shop.goods.AbstractGoods;
-
+import ru.shop.interfaces.GoodsInterface;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Scanner;
 
 public class Order {
 
     private int number;
     private double sum;
-    private List <AbstractGoods> products = new ArrayList<>();
+    private ArrayList<GoodsInterface> goodsInBasket = new ArrayList<GoodsInterface>();
 
-    public void addProduct(AbstractGoods product){
-        products.add(product);
+    public void addGoodsInBasket (GoodsInterface goods){
+        goodsInBasket.add(goods);
+    }
+
+    public void createOrder(){
+        double quantity = 0;
+        for (GoodsInterface goods : goodsInBasket) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Введите количество: ");
+            quantity = sc.nextDouble();
+        }
+        System.out.println();
+        if (!goodsInBasket.isEmpty()){
+            System.out.println("Заказ сфоормирован. Состав заказа: ");
+                for (GoodsInterface goods : goodsInBasket) {
+                    System.out.println(goods.toString());
+                }
+            }
+        else
+            System.out.println("Заказ не сфоормирован");
     }
 
     public void calculateSum(){
-        Iterator<AbstractGoods> iterator = products.iterator();
+        Iterator<GoodsInterface> iterator = goodsInBasket.iterator();
         double sum=0;
         while (iterator.hasNext()) {
-            AbstractGoods product = iterator.next();
-            if (product.getPrice() != 0 && product.getQuantity() != 0) {
-                sum += product.getPrice() * product.getQuantity();
+            GoodsInterface good = iterator.next();
+            if (good.getPrice() != 0 && good.getQuantity() != 0) {
+                sum += good.getPrice() * good.getQuantity();
             }
         }
         System.out.println();
         System.out.println("Общая сумма заказа: " + sum + " руб.");
     }
 }
+

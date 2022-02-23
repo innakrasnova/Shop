@@ -4,6 +4,8 @@ public interface StaffInterface {
 
     String getName();
 
-    String getPosition();
+    SectionInterface getSection();
+
+    void setSection (SectionInterface section);
 
 }
