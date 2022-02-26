@@ -9,41 +9,58 @@ public class Order {
 
     private int number;
     private double sum;
+    private String status;
     private ArrayList<GoodsInterface> goodsInBasket = new ArrayList<GoodsInterface>();
 
-    public void addGoodsInBasket (GoodsInterface goods){
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void addGoodsInBasket(GoodsInterface goods) {
         goodsInBasket.add(goods);
     }
 
-    public void createOrder(){
+    public void createOrder() {
         for (GoodsInterface goods : goodsInBasket) {
             Scanner sc = new Scanner(System.in);
-            System.out.println("Введите количество: ");
+            System.out.print("Введите количество: ");
             goods.setQuantity(sc.nextDouble());
         }
-
-        System.out.println();
-        if (!goodsInBasket.isEmpty()){
-            System.out.println("Заказ сфоормирован. Состав заказа: ");
-                for (GoodsInterface goods : goodsInBasket) {
-                    System.out.println(goods.toString());
-                }
+        if (!goodsInBasket.isEmpty()) {
+            System.out.println("\nЗаказ создан. Состав заказа: ");
+            for (GoodsInterface goods : goodsInBasket) {
+                System.out.println(goods.toString());
             }
-        else
-            System.out.println("Заказ не сфоормирован");
+        } else
+            System.out.println("Заказ не создан");
     }
 
-    public void calculateSum(){
+    public void calculateSum() {
         Iterator<GoodsInterface> iterator = goodsInBasket.iterator();
-        double sum=0;
+        double sum = 0;
         while (iterator.hasNext()) {
             GoodsInterface good = iterator.next();
             if (good.getPrice() != 0 && good.getQuantity() != 0) {
                 sum += good.getPrice() * good.getQuantity();
             }
         }
-        System.out.println();
-        System.out.println("Общая сумма заказа: " + sum + " руб.");
+        System.out.println("\nОбщая сумма заказа: " + sum + " руб.");
+    }
+
+    public void chooseDelivery() {
+        System.out.println("\nВыберите способ доставки: 1 - самовывоз; 2 - доставка курьером");
+        Scanner sc = new Scanner(System.in);
+        int delivery = sc.nextInt();
+        if (delivery == 1)
+            System.out.println("Вы выбрали самовыоз");
+        else
+            System.out.println("Вы выбрали доставку курьером");
+        public void setStatus ("Заказ оформлен");
     }
 }
+
 

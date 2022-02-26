@@ -35,7 +35,7 @@ public class Main {
                 milkSection.addStaff(sellerOfMilkSection);
 
                 BakeryGoods bread = new BakeryGoods("Bread", 50, "шт.");
-                MilkGoods milk = new MilkGoods("Milk", 80,"шт.");
+                MilkGoods milk = new MilkGoods("Milk", 100,"шт.");
 
                 bakerySection.addGoods(bread);
                 milkSection.addGoods(milk);
@@ -48,6 +48,13 @@ public class Main {
                 order.addGoodsInBasket(milk);
                 order.createOrder();
 
-                //order.calculateSum();
+                order.calculateSum();
+
+                order.chooseDelivery();
+
+                order.getStatus();
+
+
+
             }
 }
