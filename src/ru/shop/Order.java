@@ -59,7 +59,8 @@ public class Order {
             System.out.println("Вы выбрали самовыоз");
         else
             System.out.println("Вы выбрали доставку курьером");
-        public void setStatus ("Заказ оформлен");
+
+        this.setStatus("Заказ оформлен");
     }
 }
 
