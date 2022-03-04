@@ -15,6 +15,8 @@ import java.util.ArrayList;
 
 public class Main {
 
+    // Sysem.out.println(homework #11);
+
             public static void main(String[] args) {
                 doShoppingProcess();
             }
