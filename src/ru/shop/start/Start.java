@@ -1,19 +1,16 @@
 package ru.shop.start;
 
-import ru.shop.Order;
+import ru.shop.service.CreateOrderService;
 import ru.shop.Salesroom;
-import ru.shop.customer.CommonCustomer;
-import ru.shop.goods.BakeryGoods;
-import ru.shop.goods.MilkGoods;
-import ru.shop.interfaces.GoodsInterface;
+import ru.shop.model.customer.CommonCustomer;
+import ru.shop.model.goods.BakeryGoods;
+import ru.shop.model.goods.MilkGoods;
 import ru.shop.section.BakerySection;
 import ru.shop.section.MilkSection;
 import ru.shop.staff.SellerOfBakerySection;
 import ru.shop.staff.SellerOfMilkSection;
 
-import java.util.ArrayList;
-
-public class Main {
+public class Start {
 
             public static void main(String[] args) {
                 doShoppingProcess();
@@ -43,18 +40,14 @@ public class Main {
                 CommonCustomer commonCustomer = new CommonCustomer("Вася", 1000);
                 //SpecialCustomer specialCustomer = new SpecialCustomer("Петя", 2000);
 
-                Order order = new Order();
-                order.addGoodsInBasket(bread);
-                order.addGoodsInBasket(milk);
-                order.createOrder();
+                CreateOrderService order = new CreateOrderService();
+                commonCustomer.addGoodsInBasket(bread);
+                commonCustomer.addGoodsInBasket(milk);
+                commonCustomer.createOrder();
 
                 order.calculateSum();
 
                 order.chooseDelivery();
-
-                order.getStatus();
-
-
 
             }
 }

@@ -1,7 +1,7 @@
 package ru.shop;
 
 import ru.shop.interfaces.CustomerInterface;
-import ru.shop.interfaces.SectionInterface;
+import ru.shop.interfaces.CategoryInterface;
 
 import java.util.ArrayList;
 
@@ -9,10 +9,10 @@ public class Salesroom {
 
     public static final String SHOP_NAME = "Shop";
     private ArrayList<CustomerInterface> customerList = new ArrayList<>();
-    private ArrayList<SectionInterface> sectionList = new ArrayList<>();
+    private ArrayList<CategoryInterface> sectionList = new ArrayList<>();
 
 
-    public ArrayList<SectionInterface> getSectionList() {
+    public ArrayList<CategoryInterface> getSectionList() {
         return sectionList;
     }
 
@@ -20,7 +20,7 @@ public class Salesroom {
         customerList.add(customer);
     }
 
-    public void addSection(SectionInterface section){
+    public void addSection(CategoryInterface section){
         sectionList.add(section);
     }
 

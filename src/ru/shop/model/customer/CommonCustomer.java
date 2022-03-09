@@ -1,4 +1,4 @@
-package ru.shop.customer;
+package ru.shop.model.customer;
 
 public class CommonCustomer extends BaseCustomer {
 

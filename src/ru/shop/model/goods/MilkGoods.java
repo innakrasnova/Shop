@@ -1,4 +1,4 @@
-package ru.shop.goods;
+package ru.shop.model.goods;
 
 public class MilkGoods extends BaseGoods{
 

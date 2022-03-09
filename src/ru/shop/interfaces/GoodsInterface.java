@@ -10,13 +10,9 @@ public interface GoodsInterface {
 
     void setQuantity(double quantity);
 
-    String getUnit();
+    CategoryInterface getSection();
 
-    SectionInterface getSection();
-
-    boolean hasDefect();
-
-    void setSection(SectionInterface section);
+    void setSection(CategoryInterface section);
 
     String toString();
 }

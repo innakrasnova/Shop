@@ -1,7 +1,7 @@
-package ru.shop.goods;
+package ru.shop.model.goods;
 
 import ru.shop.interfaces.GoodsInterface;
-import ru.shop.interfaces.SectionInterface;
+import ru.shop.interfaces.CategoryInterface;
 
 public abstract class BaseGoods implements GoodsInterface {
 
@@ -10,7 +10,7 @@ public abstract class BaseGoods implements GoodsInterface {
     private String unit;
     private double quantity;
     private boolean defect;
-    private SectionInterface section;
+    private CategoryInterface section;
 
     public BaseGoods(String name, double price, String unit) {
         this.name = name;
@@ -47,8 +47,8 @@ public abstract class BaseGoods implements GoodsInterface {
     public void setUnit(String unit) {
         this.unit = unit;
     }
-    public SectionInterface getSection() { return section; }
-    public void setSection(SectionInterface section) { this.section = section; }
+    public CategoryInterface getSection() { return section; }
+    public void setSection(CategoryInterface section) { this.section = section; }
     public boolean hasDefect() { return defect; }
     public void setHasDefect(boolean defect) { this.defect = defect; }
 

@@ -1,56 +1,57 @@
-package ru.shop;
+package ru.shop.model.customer;
 
+import ru.shop.interfaces.CustomerInterface;
 import ru.shop.interfaces.GoodsInterface;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
-public class Order {
+public abstract class BaseCustomer implements CustomerInterface {
 
-    private int number;
-    private double sum;
-    private String status;
-    private ArrayList<GoodsInterface> goodsInBasket = new ArrayList<GoodsInterface>();
+    private String name;
+    private double moneyOnAccount;
+    private final Basket basket;
 
-    public String getStatus() {
-        return status;
+    public BaseCustomer(String name, double moneyOnAccount) {
+        this.name = name;
+        this.moneyOnAccount = moneyOnAccount;
+        this.basket = new Basket();
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void buy() {
+    }
+
+    public void returnGoods() {
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     public void addGoodsInBasket(GoodsInterface goods) {
-        goodsInBasket.add(goods);
+        basket.put(goods);
     }
 
     public void createOrder() {
-        for (GoodsInterface goods : goodsInBasket) {
+        for (GoodsInterface goods : basket.getGoods()) {
             Scanner sc = new Scanner(System.in);
             System.out.print("Введите количество: ");
             goods.setQuantity(sc.nextDouble());
         }
-        if (!goodsInBasket.isEmpty()) {
+        if (!basket.getGoods().isEmpty()) {
             System.out.println("\nЗаказ создан. Состав заказа: ");
-            for (GoodsInterface goods : goodsInBasket) {
+            for (GoodsInterface goods : basket.getGoods()) {
                 System.out.println(goods.toString());
             }
         } else
             System.out.println("Заказ не создан");
     }
-
-    public void calculateSum() {
-        Iterator<GoodsInterface> iterator = goodsInBasket.iterator();
-        double sum = 0;
-        while (iterator.hasNext()) {
-            GoodsInterface good = iterator.next();
-            if (good.getPrice() != 0 && good.getQuantity() != 0) {
-                sum += good.getPrice() * good.getQuantity();
-            }
-        }
-        System.out.println("\nОбщая сумма заказа: " + sum + " руб.");
-    }
-
+    
     public void chooseDelivery() {
         System.out.println("\nВыберите способ доставки: 1 - самовывоз; 2 - доставка курьером");
         Scanner sc = new Scanner(System.in);
@@ -62,6 +63,5 @@ public class Order {
 
         this.setStatus("Заказ оформлен");
     }
+    
 }
-
-
