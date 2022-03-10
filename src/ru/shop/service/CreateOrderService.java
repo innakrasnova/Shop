@@ -1,16 +1,15 @@
 package ru.shop.service;
 
 import ru.shop.interfaces.GoodsInterface;
-import java.util.ArrayList;
+import ru.shop.model.customer.Basket;
+
 import java.util.Iterator;
-import java.util.Scanner;
 
 public class CreateOrderService {
 
     private int number;
     private double sum;
     private String status;
-    private ArrayList<GoodsInterface> goodsInBasket = new ArrayList<>();
 
     public String getStatus() {
         return status;
@@ -21,7 +20,7 @@ public class CreateOrderService {
     }
 
     public void calculateSum() {
-        client.getGoodsInBasket
+        basket.getGoods();
         Iterator<GoodsInterface> iterator = goodsInBasket.iterator();
         double sum = 0;
         while (iterator.hasNext()) {
@@ -31,17 +30,6 @@ public class CreateOrderService {
             }
         }
         System.out.println("\nОбщая сумма заказа: " + sum + " руб.");
-    }
-
-    public void chooseDelivery() {
-        System.out.println("\nВыберите способ доставки: 1 - самовывоз; 2 - доставка курьером");
-        Scanner sc = new Scanner(System.in);
-        int delivery = sc.nextInt();
-        if (delivery == 1)
-            System.out.println("Вы выбрали самовывоз");
-        else System.out.println("Вы выбрали доставку курьером");
-
-        this.setStatus("Заказ оформлен");
     }
 }
 

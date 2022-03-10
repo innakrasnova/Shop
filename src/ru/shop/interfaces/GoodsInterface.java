@@ -15,4 +15,5 @@ public interface GoodsInterface {
     void setSection(CategoryInterface section);
 
     String toString();
+
 }

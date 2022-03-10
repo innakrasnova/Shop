@@ -1,6 +1,7 @@
 package ru.shop.interfaces;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public interface CategoryInterface {
     /**
@@ -8,6 +9,7 @@ public interface CategoryInterface {
      * @return {@code String} наименование категории
      */
     String getName();
-    ArrayList<GoodsInterface> getGoodsListOfCategory();
+
+    LinkedList<GoodsInterface> getGoodsListOfCategory();
 
 }
