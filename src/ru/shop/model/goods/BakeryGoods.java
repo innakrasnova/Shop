@@ -9,4 +9,8 @@ public class BakeryGoods extends BaseGoods {
     public BakeryGoods(String name, double quantity) {
         super(name, quantity);
     }
+
+    public BakeryGoods() {
+        super("bread", 0);
+    }
 }

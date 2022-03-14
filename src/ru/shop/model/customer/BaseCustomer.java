@@ -32,22 +32,7 @@ public abstract class BaseCustomer implements CustomerInterface {
     public void returnGoods() {
     }
 
-    public void addGoodsInBasket(GoodsInterface goods) {
-            for (GoodsInterface : basket.getGoods()) {
-            Scanner sc = new Scanner(System.in);
-            System.out.print("Введите количество: ");
-            goods.setQuantity(sc.nextDouble());
-            sc.close();         // спросить
-        }
-        if (!basket.getGoods().isEmpty()) {
-            System.out.println("\nЗаказ создан. Состав заказа: ");
-            for (GoodsInterface : basket.getGoods()) {
-                System.out.println(goods.toString());
-            }
-        } else
-            System.out.println("Заказ не создан");
-    }
-    
+
     public void chooseDelivery() {
         System.out.println("\nВыберите способ доставки: 1 - самовывоз; 2 - доставка курьером");
         Scanner sc = new Scanner(System.in);

@@ -19,9 +19,8 @@ public class CreateOrderService {
         this.status = status;
     }
 
-    public void calculateSum() {
-        basket.getGoods();
-        Iterator<GoodsInterface> iterator = goodsInBasket.iterator();
+    public void calculateSum(Basket basket) {
+        Iterator<GoodsInterface> iterator = basket.getGoods().iterator();
         double sum = 0;
         while (iterator.hasNext()) {
             GoodsInterface good = iterator.next();
