@@ -8,6 +8,7 @@ import ru.shop.model.goods.MilkGoods;
 import ru.shop.category.BakeryCategory;
 import ru.shop.category.MilkCategory;
 import ru.shop.service.PutProductService;
+import ru.shop.storage.Storage;
 
 public class Start {
 
@@ -16,6 +17,8 @@ public class Start {
             }
 
             private static void doShoppingProcess() {
+
+                Storage storage = Storage.getStorage();
 
                 CommonCustomer commonCustomer = new CommonCustomer("Вася", 1000);
 
@@ -26,5 +29,6 @@ public class Start {
                 System.out.println(commonCustomer.getBasket().getGoods());
 
                 order.calculateSum(commonCustomer.getBasket());
-            }
+
+               }
 }

@@ -1,7 +1,6 @@
 package ru.shop.model.customer;
 
 import ru.shop.interfaces.CustomerInterface;
-import ru.shop.interfaces.GoodsInterface;
 
 import java.util.Scanner;
 
