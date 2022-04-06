@@ -6,9 +6,9 @@ public interface GoodsInterface {
 
     double getPrice();
 
-    double getQuantity();
+    int getQuantity();
 
-    void setQuantity(double quantity);
+    void setQuantity(int quantity);
 
     CategoryInterface getSection();
 

@@ -6,7 +6,7 @@ public class BakeryGoods extends BaseGoods {
         super(name, price, unit);
     }
 
-    public BakeryGoods(String name, double quantity) {
+    public BakeryGoods(String name, int quantity) {
         super(name, quantity);
     }
 
