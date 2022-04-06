@@ -1,6 +1,5 @@
 package ru.shop.interfaces;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public interface CategoryInterface {

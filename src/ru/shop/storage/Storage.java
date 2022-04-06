@@ -19,7 +19,7 @@ public class Storage {
     }
 
     public int getAmountOfMilk() {
-        synchronized (this) {
+        synchronized (this) {             //???
             return amountOfMilk;
         }
     }
@@ -29,7 +29,7 @@ public class Storage {
     }
 
     public int getAmountOfBread() {
-        synchronized (this) {
+        synchronized (this) {              //???
             return amountOfBread;
         }
     }

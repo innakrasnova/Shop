@@ -6,7 +6,7 @@ public class MilkGoods extends BaseGoods{
         super(name, price, unit);
     }
 
-    public MilkGoods(String name, double quantity) {
+    public MilkGoods(String name, int quantity) {
         super(name, quantity);
     }
 

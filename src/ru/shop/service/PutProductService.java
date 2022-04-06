@@ -8,6 +8,7 @@ import ru.shop.model.goods.MilkGoods;
 import java.util.Scanner;
 
 public class PutProductService {
+
     private static final Scanner sc = new Scanner(System.in);
 
     public static void waitProduct(BaseCustomer customer, BaseGoods goods){

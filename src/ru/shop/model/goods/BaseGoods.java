@@ -8,7 +8,7 @@ public abstract class BaseGoods implements GoodsInterface {
     private String name;
     private double price;
     private String unit;
-    private double quantity;
+    private int quantity;
     private boolean defect;
     private CategoryInterface section;
 
@@ -18,15 +18,15 @@ public abstract class BaseGoods implements GoodsInterface {
         this.unit = unit;
     }
 
-    public BaseGoods(String name, double quantity) {
+    public BaseGoods(String name, int quantity) {
         this.name = name;
         this.quantity = quantity;
     }
 
-    public double getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
-    public void setQuantity(double quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
     public String getName() {

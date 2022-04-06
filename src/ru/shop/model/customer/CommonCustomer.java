@@ -12,5 +12,5 @@ public class CommonCustomer extends BaseCustomer {
 
     @Override
     public void addGoodsInBasket(GoodsInterface goods) {
-        }
+    }
 }

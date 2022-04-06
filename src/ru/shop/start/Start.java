@@ -1,5 +1,6 @@
 package ru.shop.start;
 
+import ru.shop.model.Order;
 import ru.shop.model.goods.BaseGoods;
 import ru.shop.service.CreateOrderService;
 import ru.shop.model.customer.CommonCustomer;
@@ -7,28 +8,40 @@ import ru.shop.model.goods.BakeryGoods;
 import ru.shop.model.goods.MilkGoods;
 import ru.shop.category.BakeryCategory;
 import ru.shop.category.MilkCategory;
+import ru.shop.service.PayOrderService;
 import ru.shop.service.PutProductService;
+import ru.shop.service.StorageControllerService;
 import ru.shop.storage.Storage;
 
 public class Start {
 
-            public static void main(String[] args) {
-                doShoppingProcess();
-            }
+    public static void main(String[] args) {
+    doShoppingProcess();
+    }
 
-            private static void doShoppingProcess() {
+    private static void doShoppingProcess() {
 
-                Storage storage = Storage.getStorage();
+        Storage storage = Storage.getStorage();
 
-                CommonCustomer commonCustomer = new CommonCustomer("Вася", 1000);
+        CommonCustomer commonCustomer = new CommonCustomer("Вася", 1000);
+        CreateOrderService orderService = new CreateOrderService();
 
-                PutProductService.waitProducts(commonCustomer);
+        StorageControllerService storageControllerService = new StorageControllerService(storage);
+        PutProductService.waitProducts(commonCustomer);
 
-                CreateOrderService order = new CreateOrderService();
+        Order order = orderService.buildOrder(commonCustomer);
 
-                System.out.println(commonCustomer.getBasket().getGoods());
+        commonCustomer.addOrder(order);
 
-                order.calculateSum(commonCustomer.getBasket());
+        PayOrderService payOrderService = new PayOrderService(commonCustomer, order.getNumber());
 
-               }
+        payOrderService.start();
+
+        storageControllerService.setOrder(order);
+
+        Thread storageThread = new Thread(storageControllerService);
+
+        storageThread.start();
+
+    }
 }

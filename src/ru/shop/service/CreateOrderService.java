@@ -1,25 +1,22 @@
 package ru.shop.service;
 
 import ru.shop.interfaces.GoodsInterface;
+import ru.shop.model.Order;
+import ru.shop.model.customer.BaseCustomer;
 import ru.shop.model.customer.Basket;
 
 import java.util.Iterator;
 
 public class CreateOrderService {
 
-    private int number;
-    private double sum;
-    private String status;
-
-    public String getStatus() {
-        return status;
+    public Order buildOrder(BaseCustomer customer) {
+        Order order =  new Order();
+        order.setSum(calculateSum(customer.getBasket()));
+        order.setGoods(customer.getBasket().getGoods());
+        return order;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public void calculateSum(Basket basket) {
+    private double calculateSum(Basket basket) {
         Iterator<GoodsInterface> iterator = basket.getGoods().iterator();
         double sum = 0;
         while (iterator.hasNext()) {
@@ -28,7 +25,7 @@ public class CreateOrderService {
                 sum += good.getPrice() * good.getQuantity();
             }
         }
-        System.out.println("\nОбщая сумма заказа: " + sum + " руб.");
+        return sum;                    // добавить вывод суммы заказа
     }
 }
 
