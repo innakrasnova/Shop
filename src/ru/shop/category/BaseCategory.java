@@ -19,7 +19,7 @@ public abstract class BaseCategory implements CategoryInterface {
     }
 
    public void addGoods (GoodsInterface goods){
-        goods.setSection (this);
+        goods.setSection (this);                 // спросить почему this?
         goodsListOfCategory.add(goods);
     }
 }

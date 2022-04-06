@@ -4,7 +4,7 @@ public interface CustomerInterface {
 
     void addGoodsInBasket(GoodsInterface goods);
 
-    void buy();
+    void buy(double sum);
 
     void returnGoods();
 
