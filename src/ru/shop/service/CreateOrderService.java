@@ -25,7 +25,7 @@ public class CreateOrderService {
                 sum += good.getPrice() * good.getQuantity();
             }
         }
-        return sum;                    // добавить вывод суммы заказа
+        return sum;
     }
 }
 
