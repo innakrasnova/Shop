@@ -26,6 +26,7 @@ public class CreateOrderService {
             }
         }
         return sum;
+        //System.out.println("Общая сумма заказа: " + sum + " руб.");
     }
 }
 

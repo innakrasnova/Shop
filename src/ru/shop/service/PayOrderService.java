@@ -13,7 +13,7 @@ public class PayOrderService extends Thread {
         this.orderNumber = orderNumber;
     }
 
-    public String pay() {
+    public String pay() {                                          // нет цикла
         double balance = customer.getMoneyOnAccount();
         Order order = customer.getOrderByNumber(orderNumber);
         if (order.getSum() > balance) {
@@ -29,7 +29,7 @@ public class PayOrderService extends Thread {
     @Override
     public void run() {
         super.run();
-    }
+    }                 // почему super
 
 
 }

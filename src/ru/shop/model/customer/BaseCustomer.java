@@ -50,7 +50,7 @@ public abstract class BaseCustomer implements CustomerInterface {
     }
 
 
-    public void chooseDelivery() {
+    public void chooseDelivery() {                                      // в какой класс переместить
         System.out.println("\nВыберите способ доставки: 1 - самовывоз; 2 - доставка курьером");
         Scanner sc = new Scanner(System.in);
         int delivery = sc.nextInt();

@@ -39,10 +39,13 @@ public class Storage {
     }
 
     public void decreaseAmountOfMilk(int amountOfMilk) {
-        this.amountOfMilk -= amountOfMilk;
+        synchronized (this) {
+            this.amountOfMilk -= amountOfMilk;
+        }
     }
 
     public void decreaseAmountOfBread(int amountOfBread) {
+        synchronized (this) {
         this.amountOfBread -= amountOfBread;
     }
-}
+}}
